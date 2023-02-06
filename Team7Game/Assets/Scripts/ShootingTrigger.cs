@@ -28,10 +28,8 @@ public class ShootingTrigger : MonoBehaviour
     
     private void OnTriggerExit(Collider col)
     {
-        Debug.Log("It's kind of working");
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log("It's working");
             plunger.GetComponent<PlungerMechanic>().canShoot = false;
         }
     }
