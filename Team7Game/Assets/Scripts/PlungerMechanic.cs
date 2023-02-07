@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlungerMechanic : MonoBehaviour
 {
+    public AudioSource ticksource;
     [SerializeField] private float power = 0.0f;
     private float maxPower = 1.1f;
     [SerializeField] private bool shooting = false;
@@ -14,6 +15,7 @@ public class PlungerMechanic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ticksource = GetComponent<AudioSource>();
         startPosition = transform.position;
     }
 
@@ -34,6 +36,7 @@ public class PlungerMechanic : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.Space) && canShoot)
         {
+            ticksource.Play();
             shooting = true;
         }
         else if (shooting)
@@ -41,8 +44,8 @@ public class PlungerMechanic : MonoBehaviour
             if (power > 0)
             {
                 body.AddForce(power, 0, 0, ForceMode.Impulse);
-                transform.Translate(10*Time.deltaTime, 0, 0);
-                power -= 10*Time.deltaTime;
+                transform.Translate(14*Time.deltaTime, 0, 0);
+                power -= 14*Time.deltaTime;
             }
             else
             {
