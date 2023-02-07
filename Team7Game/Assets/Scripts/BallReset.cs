@@ -19,10 +19,17 @@ public class BallReset : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.R))
         {
-            transform.position = startPosition;
-            body.velocity = Vector3.zero;
-            body.angularVelocity = Vector3.zero;
-            plunger.GetComponent<PlungerMechanic>().canShoot = true;
+            Reset();
         }
     }
+
+    public void Reset()
+    {
+        transform.position = startPosition;
+        body.velocity = Vector3.zero;
+        body.angularVelocity = Vector3.zero;
+        plunger.GetComponent<PlungerMechanic>().canShoot = true;
+    }
+
+
 }
