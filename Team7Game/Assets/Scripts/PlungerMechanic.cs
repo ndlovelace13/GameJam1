@@ -22,7 +22,7 @@ public class PlungerMechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && !shooting && canShoot)
+        if (Input.GetKey(KeyCode.Space) && !shooting && canShoot && GlobalVariableStorage.ballsLeft > -1)
         {
             if (power < maxPower)
             {
@@ -34,7 +34,7 @@ public class PlungerMechanic : MonoBehaviour
                 power = maxPower;
             }
         }
-        else if (Input.GetKeyUp(KeyCode.Space) && canShoot)
+        else if (Input.GetKeyUp(KeyCode.Space) && canShoot && GlobalVariableStorage.ballsLeft > -1)
         {
             ticksource.Play();
             shooting = true;

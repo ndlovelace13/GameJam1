@@ -51,4 +51,19 @@ public class blockCollide : MonoBehaviour
         }
 
     }
+
+    IEnumerator OnCollisionStay (Collision collision)
+    {
+        if (collision.gameObject.tag == "movingBounce")
+        {
+            rb.velocity = rb.velocity * 70;
+            if (playing1 == false)
+            {
+                playing1 = true;
+                bounce.Play();
+                yield return new WaitForSeconds(2);
+                playing1 = false;
+            }
+        }
+    }
 }
